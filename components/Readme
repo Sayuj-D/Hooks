@@ -1,0 +1,11 @@
+one.tsx - practise of basic props and components
+
+useState.tsx - practise of useState function, and made a counter that increases, decreases and reset the count.
+
+card.tsx - passing the props as childern. (here no function is involved.)
+
+button.tsx - passing the props as childern, here passing function is also included. created a count function. 
+
+btn.tsx - the practise code of the button.tsx. 
+
+slpractise.tsx - the file, includes the state lifiting practise, click the checkbox to copy the content from one input field to another. 
