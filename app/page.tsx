@@ -1,19 +1,25 @@
 "use client";
-import React, { useState } from "react";
-import One from "@/components/one";
+import React, { createContext, useState } from "react";
+import One from "@/components/props and components/one";
 // import props_image from "@/publiic/prop_image.avif";
 import UseState from "@/components/useState";
-import Card from "@/components/card";
-import Button from "@/components/button";
-import Btn from "@/components/btn";
-import StateLifting from "@/components/stateLifting";
-import StateLiftingpractise from "@/components/stateLiftingpractise";
-import Slpractise from "@/components/slpractise";
-import Events from "@/components/events";
-import LearnUseEffect from "@/components/learnUseEffect";
-import UseEffectpart2 from "@/components/useEffectpart2";
-import Axiousapi from "@/components/axiousapi";
-import Api_here from "@/components/api_here";
+import Card from "@/components/props and components/card";
+import Button from "@/components/props and components/button";
+import Btn from "@/components/props and components/btn";
+import StateLifting from "@/components/state Lifting/stateLifting";
+import StateLiftingpractise from "@/components/state Lifting/stateLiftingpractise";
+import Slpractise from "@/components/state Lifting/slpractise";
+import Events from "@/components/conditional rendering + event handeling/events";
+import LearnUseEffect from "@/components/useEffect/learnUseEffect";
+import UseEffectpart2 from "@/components/useEffect/useEffectpart2";
+import Axiousapi from "@/components/useEffect/axiousapi";
+import Api_here from "@/components/useEffect/api_here";
+import ChildA from "@/components/useContext/childA";
+
+// step: 1 - Creating the Contex hook
+const UserContext = createContext({ name: "", address: "" });
+
+// step: 2 - wrapping the child inside the provider
 
 const page: React.FC = () => {
   // for passing props as function
@@ -44,6 +50,8 @@ const page: React.FC = () => {
   // } else {
   //   return <Login />;
   // }
+
+  const [user, setUser] = useState({ name: "Sayujya", address: "Banasthali" });
   return (
     <>
       <h1 className="text-center text-2xl mb-8 underline">Props</h1>
@@ -143,8 +151,15 @@ const page: React.FC = () => {
       {/* ------------ */}
 
       <Api_here />
+
+      {/* ------------ */}
+      <h1 className="heading">UseContext</h1>
+      <UserContext.Provider value={user}>
+        <ChildA />
+      </UserContext.Provider>
     </>
   );
 };
 
 export default page;
+export { UserContext };
