@@ -15,12 +15,13 @@ import UseEffectpart2 from "@/components/useEffect/useEffectpart2";
 import Axiousapi from "@/components/useEffect/axiousapi";
 import Api_here from "@/components/useEffect/api_here";
 import ChildA from "@/components/useContext/childA";
-import Useeref from "@/components/useeref";
+import Useeref from "@/components/useRef/useeref";
 
 // ------------------
 import Themeswitcher from "@/components/useContext/Theme_toggle/themeswitcher";
 import { ThemeProvider } from "@/components/useContext/Theme_toggle/themeContext";
-import Stopwatch from "@/components/stopwatch";
+import Stopwatch from "@/components/useRef/stopwatch";
+import UseeMemo from "@/components/useeMemo";
 
 // ------------------
 // self-context:
@@ -194,8 +195,10 @@ const page: React.FC = () => {
       <Useeref />
 
       {/* ----------------- */}
-
       <Stopwatch />
+      {/* ----------------- */}
+
+      <UseeMemo />
     </>
   );
 };
