@@ -22,6 +22,8 @@ import Themeswitcher from "@/components/useContext/Theme_toggle/themeswitcher";
 import { ThemeProvider } from "@/components/useContext/Theme_toggle/themeContext";
 import Stopwatch from "@/components/useRef/stopwatch";
 import UseeMemo from "@/components/useeMemo";
+import Parent_component from "@/components/useCallback_test/parent_component";
+import Expensive_component from "@/components/useCallback_test/expensive_component";
 
 // ------------------
 // self-context:
@@ -197,8 +199,18 @@ const page: React.FC = () => {
       {/* ----------------- */}
       <Stopwatch />
       {/* ----------------- */}
-
+      <p className="heading">useMemo</p>
       <UseeMemo />
+      {/* -------------- */}
+      <p className="heading">useCallback</p>
+
+      {/* ----------- */}
+      <Parent_component />
+      {/* ----------- */}
+
+      <p className="heading">Handeling Expensive component from useCallback</p>
+
+      <Expensive_component />
     </>
   );
 };
