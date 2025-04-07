@@ -15,8 +15,21 @@ import UseEffectpart2 from "@/components/useEffect/useEffectpart2";
 import Axiousapi from "@/components/useEffect/axiousapi";
 import Api_here from "@/components/useEffect/api_here";
 import ChildA from "@/components/useContext/childA";
+import Useeref from "@/components/useeref";
+
+// ------------------
+import Themeswitcher from "@/components/useContext/Theme_toggle/themeswitcher";
+import { ThemeProvider } from "@/components/useContext/Theme_toggle/themeContext";
+import Stopwatch from "@/components/stopwatch";
+
+// ------------------
+// self-context:
+import Child_capture from "@/components/child_capture";
+
+const ToggleContext = createContext();
 
 // step: 1 - Creating the Contex hook
+
 const UserContext = createContext({ name: "", address: "" });
 
 // step: 2 - wrapping the child inside the provider
@@ -52,6 +65,8 @@ const page: React.FC = () => {
   // }
 
   const [user, setUser] = useState({ name: "Sayujya", address: "Banasthali" });
+  const [themes, setThemes] = useState("Light");
+
   return (
     <>
       <h1 className="text-center text-2xl mb-8 underline">Props</h1>
@@ -65,6 +80,7 @@ const page: React.FC = () => {
       <UseState />
 
       {/* -------------------------------------- */}
+
       <h1 className="text-center text-2xl mb-8 underline mt-8">
         Passing props as Childern
       </h1>
@@ -102,6 +118,7 @@ const page: React.FC = () => {
       </p>
 
       {/* stateLifting practise, show and hide the content */}
+
       <StateLiftingpractise
         // passing 3 props to a component
         title="Introduction"
@@ -126,6 +143,7 @@ const page: React.FC = () => {
       </h1>
 
       {/* passing the props */}
+
       <Slpractise data={data} setData={setData} />
 
       {/* -------------------------- */}
@@ -134,12 +152,14 @@ const page: React.FC = () => {
       </h1> */}
 
       {/* -------------------------- */}
+
       <h1 className="text-center text-2xl mb-8 underline mt-8">
         Event Handeling
       </h1>
       <Events />
 
       {/* --------------------- */}
+
       <LearnUseEffect />
 
       {/* -------------------- */}
@@ -147,7 +167,9 @@ const page: React.FC = () => {
       <UseEffectpart2 />
 
       {/* ------------ */}
+
       <Axiousapi />
+
       {/* ------------ */}
 
       <Api_here />
@@ -157,9 +179,27 @@ const page: React.FC = () => {
       <UserContext.Provider value={user}>
         <ChildA />
       </UserContext.Provider>
+
+      {/* ----------------- */}
+      <ThemeProvider>
+        <Themeswitcher />
+      </ThemeProvider>
+      {/* ----------------- */}
+
+      <ToggleContext value={{ themes, setThemes }}>
+        <Child_capture />
+      </ToggleContext>
+
+      {/* ------------------ */}
+      <Useeref />
+
+      {/* ----------------- */}
+
+      <Stopwatch />
     </>
   );
 };
 
 export default page;
 export { UserContext };
+export { ToggleContext };
