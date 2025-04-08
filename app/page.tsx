@@ -30,6 +30,7 @@ import Expensive_component from "@/components/useCallback_test/expensive_compone
 import Child_capture from "@/components/child_capture";
 import Main_custom from "@/components/custom_hook/main";
 import Counter1 from "@/components/custom_hook/counter1";
+import Toggle from "@/components/custom_hook/toggle";
 
 const ToggleContext = createContext();
 
@@ -217,6 +218,9 @@ const page: React.FC = () => {
       <Main_custom />
 
       <Counter1 />
+
+      {/* ----------------- */}
+      <Toggle />
     </>
   );
 };
