@@ -28,6 +28,8 @@ import Expensive_component from "@/components/useCallback_test/expensive_compone
 // ------------------
 // self-context:
 import Child_capture from "@/components/child_capture";
+import Main_custom from "@/components/custom_hook/main";
+import Counter1 from "@/components/custom_hook/counter1";
 
 const ToggleContext = createContext();
 
@@ -211,6 +213,10 @@ const page: React.FC = () => {
       <p className="heading">Handeling Expensive component from useCallback</p>
 
       <Expensive_component />
+      {/* ------------- */}
+      <Main_custom />
+
+      <Counter1 />
     </>
   );
 };
